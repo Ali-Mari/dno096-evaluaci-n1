@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <!--Busque su emoji en https://www.w3schools.com/html/html_emojis.asp-->
+        <title>Evaluación 1 🐱</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <p>
+                <a href="index.html">Bienvenidos</a>
+                <a href="page.html">Caleidoscopio</a>
+                <a href="page1.html">Condiciones</a>
+                <a href="page2.html" class="activo">Poemas Aleatorio</a>
+                <a href="page3.html">Orbit Control</a>
+            </p>
+            <h1>Poemas Aleatorio</h1>
+            <h2></h2>
+            <p></p>            
+        </header>
+        <main>
+        </main>
+        <script>
+            function setup() {
+                background('#90CAF9');
+                stroke('#1565C0');
+            }
+
+            let words = ['Persa', 'Esfinge', 'Siamés', 'Maine Coon', 'Bengalí', 'Ragdoll', 'Siberiano', 'Angora', 'Cornish Rex', 'Europeo', 'Azul ruso', 'Curl americano', 'Somalí', 'Exótico', 'Oriental', 'Abisinio', 'Cartujo', 'Himalayo', 'Bombay', 'Bosque de Noruega'];
+
+            let wordCount = 5;
+            let hue;
+            let position;
+
+            function setup() {
+                describe(
+                'A random series of words related to me.'
+                );
+
+                textFont('Space Mono');
+
+                createCanvas(windowWidth, windowHeight);
+
+                textAlign(CENTER);
+                colorMode(HSB);
+
+                hue = ('#BBDEFB');
+
+                position = floor(random(0, words.length - wordCount));
+
+                background('#90CAF9');
+
+                for (let i = 0; i < 15; i++) {
+                textSize(random(16, 50));
+                fill(hue, 100, random(20, 75));
+                text(random(words), random(width), random(height) +200);
+                }
+            }
+        </script>
+    </body>
+</html>

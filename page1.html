@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <!--Busque su emoji en https://www.w3schools.com/html/html_emojis.asp-->
+        <title>Evaluación 1 🐱</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <p>
+                <a href="index.html">Bienvenidos</a>
+                <a href="page.html">Caleidoscopio</a>
+                <a href="page1.html" class="activo">Condiciones</a>
+                <a href="page2.html">Poemas Aleatorio</a>
+                <a href="page3.html">Orbit Control</a>
+            </p>
+            <h1>Condiciones</h1>
+            <h2></h2>
+            <p></p>            
+        </header>
+        <main>
+        </main>
+        <aside>
+            <button onclick="foto()">💾Descargar</button>
+        </aside>
+        <script>
+            let circlePositionX = 750;  
+            let circlePositionY = 350;  
+
+            let circleSpeedX = 2;  
+            let circleSpeedY = 3;  
+
+            let circleRadius = 25;  
+
+            let circleHue = 0;  
+            let isMoving = false;  
+
+            function setup() {  
+                createCanvas(windowWidth, windowHeight);  
+                background('#90CAF9');  
+
+                ellipseMode(RADIUS);  
+                colorMode(HSB);  
+                strokeWeight(4);  
+
+                describe(  
+                'Un círculo comienza en el centro del lienzo. Al hacer clic, el círculo rebota alrededor del lienzo y deja un rastro de arco iris. Al hacer clic de nuevo, el círculo se detiene.'  
+                 );  
+            }  
+
+            function draw() {    
+                stroke(circleHue, 80, 90);  
+                if (circlePositionX >= 100 && circlePositionX <= 300) {  
+                fill(0);  
+                } else {  
+                fill(255);  
+                }  
+                circle(circlePositionX, circlePositionY, circleRadius);  
+ 
+                if (isMoving) {    
+                circlePositionX += circleSpeedX;  
+                circlePositionY += circleSpeedY;  
+
+                circleHue += 1;  
+
+                if (circleHue >= 360) {  
+                    circleHue = 0;  
+                }  
+ 
+                if (  
+                    circlePositionX < circleRadius ||  
+                    circlePositionX > width - circleRadius  
+                 ) {  
+                   circleSpeedX = -circleSpeedX;  
+                }  
+
+                if (  
+                    circlePositionY < circleRadius ||  
+                    circlePositionY > height - circleRadius  
+                 ) {  
+                    circleSpeedY = -circleSpeedY;  
+                   }  
+                }  
+            }  
+
+            function mousePressed() {   
+                isMoving = !isMoving;  
+            }
+
+            function foto() {
+                saveCanvas('Condiciones.jpg');
+            }
+
+        </script>
+    </body>
+</html>
